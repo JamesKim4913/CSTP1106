@@ -1,0 +1,25 @@
+    .back_color{
+      background-color: lavender;
+      font: 16px Arial;
+    }
+
+		table, td{
+			padding: 10px;
+		  border: 0px black solid;
+		  border-collapse: collapse;
+		}
+
+		.intro-name {
+			font-size: 55px;
+			text-align: center;
+		}
+
+		.img-thumb {
+			width: 200px;
+			height: 200px;
+		}
+
+		.container {
+			margin:0 auto;
+			width: 50%;
+		}
