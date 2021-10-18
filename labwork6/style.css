@@ -1,0 +1,51 @@
+li {
+  font-style: italic;
+  color: gray;
+}
+
+h1 {
+  text-decoration: underline;
+  text-align: center;
+}
+
+.blue_color {
+  border: thin solid grey;
+  background-color: silver;
+  padding: 5px 10px 15px 10px;
+  margin: 1em 2em;
+}
+
+div {
+  padding: 15px;
+}
+
+img {
+  float: right;
+}
+
+#header_style {
+  background-color: #fefbd8;
+  text-align: center;
+}
+
+#footer_style {
+  background-color: #f18973;
+  text-align: center;
+  clear: both;
+}
+
+#nav_style {
+  background-color: #80ced6;
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  height: 600px;
+}
+
+#main_area_style {
+  background-color: #d5f4e6;
+  float: right;
+  width: 50%;
+  box-sizing: border-box;
+  height: 600px;
+}
