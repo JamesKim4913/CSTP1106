@@ -1,0 +1,23 @@
+#violet_color_15_size_font{
+  background-color: Violet;
+  font: 15px Arial;
+}
+
+#green_color{
+  background-color: MediumSeaGreen;
+}
+
+.orange_color{
+  background-color: orange;
+}
+
+.red_color_for_font{
+  color: red;
+  display: block;
+}
+
+.blue_color_for_font{
+  color: blue;
+  border: 1px black solid;
+  display: inline;
+}
