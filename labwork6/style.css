@@ -21,7 +21,7 @@ img {
 #nav_style {
   background-color: #6699ff;
   float: left;
-  width: 50%;
+  width: 30%;
   box-sizing: border-box;
   height: 600px;
   padding: 10px;
@@ -30,7 +30,7 @@ img {
 #main_area_style {
   background-color: #00cc99;
   float: right;
-  width: 50%;
+  width: 70%;
   box-sizing: border-box;
   height: 600px;
   padding: 10px;
