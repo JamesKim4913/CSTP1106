@@ -1,0 +1,33 @@
+
+h3 {
+  background-color: #46C605;
+  border: 3px solid black;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  color: #ff6347;
+}
+
+td h3 {
+  background-color: #ff6347;
+  border: 3px solid black;
+  margin-top: 0px;
+  color: black;
+}
+
+a:link {
+  color: #DC143C;
+}
+
+a:visited {
+  color: #228B22;
+}
