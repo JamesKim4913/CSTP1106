@@ -1,0 +1,62 @@
+#header {
+  background-color: #d6cbd3;
+  text-align: center;
+  clear: both;
+}
+
+#main {
+  background-color: #eca1a6;
+  float: left;
+  width: 80%;
+}
+
+#nav {
+  background-color: #bdcebe;
+  float: right;
+  width: 20%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#footer {
+  background-color: #ada397;
+  text-align: center;
+  clear: both;
+}
+
+
+
+th {
+  text-align: center;
+}
+
+.sport {
+  float: left;
+  width: 30%;
+}
+
+#proteam {
+  border: 2px;
+}
+
+.gallery {
+  background-color: #d6cbd3;
+  float: right;
+  width: 70%;
+  vertical-align: text-top;
+}
+
+a:link {
+  color: Violet;
+}
+a:visited {
+  color: MediumSeaGreen;
+}
+a:hover {
+  color: Tomato;
+}
+a:active {
+  background-color: DodgerBlue;
+  color: white;
+}
