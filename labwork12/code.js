@@ -1,7 +1,7 @@
 // Success weather result, display html
 function procces_(data){
   console.log(data);
-  temp = data.main.temp  // current temperature  
+  temp = data.main.temp  // current temperature
   jQuery('#city_temperature').html(temp)
 
   // fahrenheit to celsius
@@ -12,12 +12,10 @@ function procces_(data){
 
 // Ajax get send, openweathermap
 function AJAX_GET(){
-  city_name_input = jQuery('#city_name_input').val()
-  // key = 'b660f3402c54cb9a9c48f89c35249e5c' // Instructor key
-  key = '83a2edbfd82058895386c02214670622' // James key
+  city_name_input = jQuery('#city_name_input').val()  
   // For temperature in Celsius use units=metric
   $.ajax({
-    url:`https://api.openweathermap.org/data/2.5/weather?q=${city_name_input}&appid=${key}&units=metric`,
+    url:`https://api.openweathermap.org/data/2.5/weather?q=${city_name_input}&appid=83a2edbfd82058895386c02214670622&units=metric`,
     type:'GET',
     success: procces_
   })
