@@ -1,10 +1,8 @@
 
 function call_ajax(){
   $.ajax(
-    {
-      // Teacher API_key = url: 'https://imdb-api.com/en/API/Top250Movies/k_c061af1l',
-      // James API_key = url: 'https://imdb-api.com/en/API/Top250Movies/k_vbvmwrke',
-      url: 'https://imdb-api.com/en/API/Top250Movies/k_c061af1l',
+    {      
+      url: 'https://imdb-api.com/en/API/Top250Movies/k_vbvmwrke',
       type: 'GET',
       success: tableInsert
     }
