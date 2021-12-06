@@ -1,7 +1,7 @@
 
 function call_ajax(){
   $.ajax(
-    {      
+    {
       url: 'https://imdb-api.com/en/API/Top250Movies/k_vbvmwrke',
       type: 'GET',
       success: tableInsert
@@ -12,12 +12,12 @@ function call_ajax(){
 
 // Reference site : https://kkh0977.tistory.com/1011
 
-/* [Table list global variable declaration] */
+/* [Table list global leniable declaration] */
 const tableList = []; // Insert while turning the for statement in the table insert function
 const pageList = 10; // The number of lists to be shown on a page.
 const pageMax = 10; // Maximum number of pages to be created (you need to click the previous, next button to view more pages)
-var idx = 0; // After checking idx value, dynamic page switching and data display
-var page = 1; // Page number to start creation
+let idx = 0; // After checking idx value, dynamic page switching and data display
+let page = 1; // Page number to start creation
 
 
 
@@ -28,9 +28,9 @@ function tableInsert(data){
 	// pageInsert(page);
 
 	// [Turn the for loop to generate tr data]
-	for (var i=0; i<data.items.length; i++){
+	for (let i=0; i<data.items.length; i++){
 		// Add it to the list in JSON format
-		var jsonObject = {
+		let jsonObject = {
       "idx": i,
       "crew": data.items[i].crew,
       "fullTitle": data.items[i].fullTitle,
@@ -58,13 +58,13 @@ function pageInsert(value){
 	$("#dyn_ul").empty();
 
 	// [Check the number of table tr generated >> Cutting the list of 10 paging items]
-	var startIndex = value; // Creation start page
-	//var endIndex = $("#dyn_tbody tr").length; // Check the number of trs dynamically added to tbody
-	var endIndex = tableList.length; // Check the lengths in the arrangement
+	let startIndex = value; // Creation start page
+	//let endIndex = $("#dyn_tbody tr").length; // Check the number of trs dynamically added to tbody
+	let endIndex = tableList.length; // Check the lengths in the arrangement
 
 	// [Check the number to be paged according to the number of tr]
-	var pageCount = 0;
-	var pagePlus = 0;
+	let pageCount = 0;
+	let pagePlus = 0;
 	if(endIndex > pageList){ // If the number of tr rows is 10 or more (random setting)
 		pageCount = Math.floor(endIndex / pageList); // Number of pages to be created (throw away decimal points)
 		pagePlus = endIndex % pageList; // The remaining number of children
@@ -86,7 +86,7 @@ function pageInsert(value){
 
 	// [Dynamic ul paging processing is performed]
 	if(pageCount == 1){ // If the page you need to create is one page
-		var insertUl = "<li class='page-item'>"; // Declaration of variable
+		let insertUl = "<li class='page-item'>"; // Declaration of variable
 		insertUl += insertUl + "<a class='page-link' href='javascript:void(0)' onclick='newPage(1);'>";
 		insertUl += insertUl + i;
 		insertUl += insertUl + "</a></li>";
@@ -94,20 +94,20 @@ function pageInsert(value){
 	}
 	else if(pageCount >= 2){ // If there are two or more pages to be created
 		// Add the previous page
-		var insertSTR = "<li class='page-item'>"; // Declaration of variable
+		let insertSTR = "<li class='page-item'>"; // Declaration of variable
 		insertSTR = insertSTR + "<a class='page-link' href='javascript:void(0)' onclick='newPage("+"-1"+");' aria-label='Previous'>";
 		insertSTR = insertSTR + "<span aria-hidden='true'>&laquo;</span>";
 		insertSTR = insertSTR + "</a></li>";
 		$("#dyn_ul").append(insertSTR); // Use "jquery append" and add it dynamically
 
 		// Specific. 1, 2, 3... Add a page
-		var count = 1;
-		for(var i=startIndex; i<=pageCount; i++){
+		let count = 1;
+		for(let i=startIndex; i<=pageCount; i++){
 			if(count > pageMax){ // When the maximum number of pages to be created is reached,
 				page = i - pageMax; // Save the generated initial value of the page (if the initial i value is 4 escape >> Save 1 value)
 				break;
 			}
-			var insertUl = "<li class='page-item'>"; // Declaration of variable
+			let insertUl = "<li class='page-item'>"; // Declaration of variable
 			insertUl = insertUl + "<a class='page-link' href='javascript:void(0)' onclick='newPage("+i+");'>";
 			insertUl = insertUl + String(i);
 			insertUl = insertUl + "</a></li>";
@@ -116,7 +116,7 @@ function pageInsert(value){
 		}
 
 		// Add the next page
-		var insertEND = "<li class='page-item'>"; // Declaration of variable
+		let insertEND = "<li class='page-item'>"; // Declaration of variable
 		insertEND = insertEND + "<a class='page-link' href='javascript:void(0)' onclick='newPage("+"0"+");' aria-label='Next'>";
 		insertEND = insertEND + "<span aria-hidden='true'>&raquo;</span>";
 		insertEND = insertEND + "</a></li>";
@@ -141,7 +141,7 @@ function newPage(pageCurrent){
 		$("#dyn_tbody").empty(); // tbody, tr. Delete all of them
 
 		// [New paging process]
-		var newIdx = page - pageMax;
+		let newIdx = page - pageMax;
 
 		// [Paging processing in accordance with data table]
 		pageInsert(newIdx); // Send the page number to be displayed
@@ -150,7 +150,7 @@ function newPage(pageCurrent){
 		$("#dyn_tbody").empty(); // tbody, tr. Delete all of them
 
 		// [New paging process]
-		var newIdx = page + pageMax;
+		let newIdx = page + pageMax;
 
 		// [Paging processing is performed according to table data]
 		pageInsert(newIdx); // Send the page number to be displayed
@@ -162,27 +162,27 @@ function newPage(pageCurrent){
 		// [Click on page 2 >> (2*10) -10 = 10 beginning]
 		idx = (pageCurrent * pageList) - pageList;
 
-		var checkCount = 1;
-		for(var i=idx; i<tableList.length; i++){ // Inserting tr data into tbody while performing repetitive statements
+		let checkCount = 1;
+		for(let i=idx; i<tableList.length; i++){ // Inserting tr data into tbody while performing repetitive statements
 			if(checkCount > pageList){ // If the list to be displayed on one page is exceeded
 				return;
 			}
 
 			// json data parsing
-			var jsonObject = JSON.parse(JSON.stringify(tableList[i])); // Refer to jsonObject in each arrangement
+			let jsonObject = JSON.parse(JSON.stringify(tableList[i])); // Refer to jsonObject in each arrangement
 			idx = jsonObject.idx;
-			var crew = jsonObject.crew;
-			var fullTitle = jsonObject.fullTitle;
-      var id = jsonObject.id;
-      var imDbRating = jsonObject.imDbRating;
-      var imDbRatingCount = jsonObject.imDbRatingCount;
-      var image = jsonObject.image;
-      var rank = jsonObject.rank;
-      var title = jsonObject.title;
-      var year = jsonObject.year;
+			let crew = jsonObject.crew;
+			let fullTitle = jsonObject.fullTitle;
+      let id = jsonObject.id;
+      let imDbRating = jsonObject.imDbRating;
+      let imDbRatingCount = jsonObject.imDbRatingCount;
+      let image = jsonObject.image;
+      let rank = jsonObject.rank;
+      let title = jsonObject.title;
+      let year = jsonObject.year;
 
 			// Dynamically adding a list
-			var insertTr = "";
+			let insertTr = "";
 			insertTr += "<tr>"; // Like the example left in the body, insert data
       insertTr += "<td>" + rank + "</td>";
 			insertTr += "<td><a href='https://www.imdb.com/title/" + id + "' target='_blank' title='" + crew + "'>" + title +
