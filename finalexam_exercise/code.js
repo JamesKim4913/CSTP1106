@@ -1,18 +1,16 @@
 
-function call_ajax(){
-  $.ajax(
-    {
+function call_ajax() {
+  $.ajax({
       url: 'https://imdb-api.com/en/API/Top250Movies/k_vbvmwrke',
       type: 'GET',
       success: tableInsert
-    }
-  )
+  });
 }
 
 
 // Reference site : https://kkh0977.tistory.com/1011
 
-/* [Table list global leniable declaration] */
+// [Table list global leniable declaration]
 const tableList = []; // Insert while turning the for statement in the table insert function
 const pageList = 10; // The number of lists to be shown on a page.
 const pageMax = 10; // Maximum number of pages to be created (you need to click the previous, next button to view more pages)
@@ -28,7 +26,7 @@ function tableInsert(data){
 	// pageInsert(page);
 
 	// [Turn the for loop to generate tr data]
-	for (let i=0; i<data.items.length; i++){
+	for(let i=0; i<data.items.length; i++) {
 		// Add it to the list in JSON format
 		let jsonObject = {
       "idx": i,
@@ -47,7 +45,7 @@ function tableInsert(data){
 
 	// [Paging is performed according to the number of table rows]
 	pageInsert(page);
-};
+}
 
 
 
@@ -102,7 +100,7 @@ function pageInsert(value){
 
 		// Specific. 1, 2, 3... Add a page
 		let count = 1;
-		for(let i=startIndex; i<=pageCount; i++){
+		for(let i=startIndex; i<=pageCount; i++) {
 			if(count > pageMax){ // When the maximum number of pages to be created is reached,
 				page = i - pageMax; // Save the generated initial value of the page (if the initial i value is 4 escape >> Save 1 value)
 				break;
@@ -128,7 +126,7 @@ function pageInsert(value){
 
 	// [New page list processing is carried out]
 	newPage(startIndex);
-};
+}
 
 
 
@@ -163,7 +161,7 @@ function newPage(pageCurrent){
 		idx = (pageCurrent * pageList) - pageList;
 
 		let checkCount = 1;
-		for(let i=idx; i<tableList.length; i++){ // Inserting tr data into tbody while performing repetitive statements
+		for(let i=idx; i<tableList.length; i++) { // Inserting tr data into tbody while performing repetitive statements
 			if(checkCount > pageList){ // If the list to be displayed on one page is exceeded
 				return;
 			}
@@ -209,4 +207,4 @@ function setup() {
   call_ajax();
 }
 
-jQuery(document).ready(setup)
+jQuery(document).ready(setup);
